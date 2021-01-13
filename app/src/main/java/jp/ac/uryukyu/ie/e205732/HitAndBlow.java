@@ -2,9 +2,12 @@ package jp.ac.uryukyu.ie.e205732;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class HitAndBlow {
-    //ゲーム説明をする出力するメソッド
+    //ゲーム説明を出力するメソッド
     public static void direction(){
         System.out.println("Hit&Blowを開始します。\n"
         + "0~9の重複のない4桁の数字を当ててもらいます。\n"
@@ -31,4 +34,48 @@ public class HitAndBlow {
             System.out.println(answer[i]);
         }
     }
+
+    //Playerが入力した数字を読み込むメソッド
+    public static void input(){
+        //入力する4つの空の配列inputを用意
+        int[] input = new int[4];
+        //ターン数の変数を用意
+        int count = 0;
+        //コンソール入力を可能にする
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        for(int j = 0; j < input.length; j++){
+            count++;
+            int a = 0;
+            System.out.println("\n" + count + "ターン目\n");
+            System.out.print((j + 1) + "つ目の数字:");
+            try{
+                //入力されたものを数値に変換
+                input[j] = Integer.parseInt(br.readLine());
+                a = input[j];
+                //数字以外の文字の入力をされた場合
+            }catch(NumberFormatException e){
+                System.out.println("数字を入力してください。");
+                j--;
+                //形式が間違っていた場合
+            }catch(IOException e){
+                System.out.println("もう一度入力してください。");
+                j--;
+                //例外があってもなくても必ず実行する処理
+            }finally{
+                //入力された数字が範囲外だった場合
+                if(a >= 10){
+                    System.out.println("0~9の数字を入力してください。");
+                    j--;
+                }
+                //入力された数字が重複していた場合
+                for(int k = j - 1; k >= 0; k--){
+                    if(input[j] == input[k]){
+                        System.out.println("重複しないように入力してください。");
+                        j--;
+                    }
+                }
+            }
+        }
+    }         
 }

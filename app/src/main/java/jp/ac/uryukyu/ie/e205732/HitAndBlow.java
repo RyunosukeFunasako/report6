@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class HitAndBlow {
+    //クラス変数の用意
+    static int eat = 0;
+    static int bite = 0;
+    static int turn = 1;
     //ゲーム説明を出力するメソッド
     public void direction(){
         System.out.println("Hit&Blowを開始します。\n"
@@ -43,6 +47,8 @@ public class HitAndBlow {
         //コンソール入力を可能にする
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
+        //ターン数を表示
+        System.out.println("\n" + turn + "ターン目");
         for(int j = 0; j < input.length; j++){
             int a = 0;
             System.out.print((j + 1) + "つ目の数字:");
@@ -79,9 +85,6 @@ public class HitAndBlow {
     
     //判定するメソッド
     public void judge(int[] answer, int[] input) {
-        //eat,biteを数えるための変数を用意
-        int eat = 0;
-        int bite = 0;
         for(int i = 0; i < answer.length; i++) {
             for(int j = 0; j < input.length; j++) {
                 //eatの条件
@@ -95,9 +98,5 @@ public class HitAndBlow {
         }
         //eat,biteのカウンター表示
         System.out.println(eat + "eat" + bite + "bite");
-        //ゲーム終了条件
-        if(eat == 4){
-            System.out.println("ゲーム終了です。");
-        }
     }
 }

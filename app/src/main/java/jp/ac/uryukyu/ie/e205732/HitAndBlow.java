@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * HitAndBlowを実装する
  * 説明文を出力する、答えを用意する、入力を読み込む、判定するメソッドを用意した
  */
-public class HitAndBlow {
+public class HitAndBlow{
     /**
      * クラス変数の用意
      */
@@ -99,10 +99,10 @@ public class HitAndBlow {
      * @param answer 答えの配列answer
      * @param input 入力の配列input
      */
-    public void judge(int[] answer, int[] input) {
-        for(int i = 0; i < answer.length; i++) {
-            for(int j = 0; j < input.length; j++) {
-                if(i == j && answer[i] == input[j]) {
+    public void judge(int[] answer, int[] input){
+        for(int i = 0; i < answer.length; i++){
+            for(int j = 0; j < input.length; j++){
+                if(i == j && answer[i] == input[j]){
                     eat++;
                 }else if(answer[i] == input[j]){
                     bite++;

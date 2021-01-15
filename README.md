@@ -1,0 +1,7 @@
+# report6
+Hit&amp;Blow
+
+Hit&Blowを実装した。
+作成したクラスは3つ。課題を解決するHitAndBlowクラス、HitAndBlowクラスのメソッドをユニットテストするためのHitAndBlowTestクラス、HitAndBlowクラスを動かすためのMainクラスである。
+HitAndBlowクラスはゲーム説明を出力するdirectionメソッド、答えの配列を用意するanswerメソッド、入力した数字を読み込むinputメソッド、判定をするjudgeメソッドを用意した。
+HitAndBlowTestクラスではHitAndBlowクラスのjudgeメソッドのユニットテストを書いた。

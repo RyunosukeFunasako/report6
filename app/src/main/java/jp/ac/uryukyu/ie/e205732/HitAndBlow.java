@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 
 public class HitAndBlow {
     //ゲーム説明を出力するメソッド
-    public static void direction(){
+    public void direction(){
         System.out.println("Hit&Blowを開始します。\n"
         + "0~9の重複のない4桁の数字を当ててもらいます。\n"
         + "入力した数字が同じ桁の数字であった場合 eat、\n"
@@ -17,7 +17,7 @@ public class HitAndBlow {
     }
 
     //答えの配列を用意するメソッド
-    public static void answer(){
+    public int[] answer(){
         //答えとなる4つの空の配列answerを用意
         int[] answer = new int[4];
         //1~9までの数字を格納する別の配列listを用意
@@ -33,21 +33,18 @@ public class HitAndBlow {
             //動作確認のため出力させる
             System.out.println(answer[i]);
         }
+        return answer;
     }
 
     //Playerが入力した数字を読み込むメソッド
-    public static void input(){
+    public int[] input(){
         //入力する4つの空の配列inputを用意
         int[] input = new int[4];
-        //ターン数の変数を用意
-        int count = 0;
         //コンソール入力を可能にする
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         for(int j = 0; j < input.length; j++){
-            count++;
             int a = 0;
-            System.out.println("\n" + count + "ターン目\n");
             System.out.print((j + 1) + "つ目の数字:");
             try{
                 //入力されたものを数値に変換
@@ -77,5 +74,30 @@ public class HitAndBlow {
                 }
             }
         }
-    }         
+        return input;
+    }
+    
+    //判定するメソッド
+    public void judge(int[] answer, int[] input) {
+        //eat,biteを数えるための変数を用意
+        int eat = 0;
+        int bite = 0;
+        for(int i = 0; i < answer.length; i++) {
+            for(int j = 0; j < input.length; j++) {
+                //eatの条件
+                if(i == j && answer[i] == input[j]) {
+                    eat++;
+                    //biteの条件
+                }else if(answer[i] == input[j]){
+                    bite++;
+                }
+            }
+        }
+        //eat,biteのカウンター表示
+        System.out.println(eat + "eat" + bite + "bite");
+        //ゲーム終了条件
+        if(eat == 4){
+            System.out.println("ゲーム終了です。");
+        }
+    }
 }

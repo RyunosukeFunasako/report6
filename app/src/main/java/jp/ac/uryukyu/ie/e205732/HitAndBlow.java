@@ -13,11 +13,12 @@ public class HitAndBlow {
     static int turn = 1;
     //ゲーム説明を出力するメソッド
     public void direction(){
-        System.out.println("Hit&Blowを開始します。\n"
-        + "0~9の重複のない4桁の数字を当ててもらいます。\n"
-        + "入力した数字が同じ桁の数字であった場合 eat、\n"
-        + "入力した数字が違う桁の数字であった場合 bite とカウントします。\n"
-        + "全ての桁が一致すればゲーム終了です。");
+        System.out.println("\n"
+        + "---------------Hit&Blow---------------\n"
+        + "・ 0~9の重複のない4桁の数字を当ててもらいます。\n"
+        + "・ 入力した数字が同じ桁の数字であった場合 eat、\n"
+        + "・ 入力した数字が違う桁の数字であった場合 bite とカウントします。\n"
+        + "・ 全ての桁が一致すればゲーム終了です。");
     }
 
     //答えの配列を用意するメソッド
@@ -34,8 +35,6 @@ public class HitAndBlow {
         //list配列から4つ取り出しanswer配列に入れる
         for(int i = 0; i < answer.length; i++){
             answer[i] = list.get(i);
-            //動作確認のため出力させる
-            System.out.println(answer[i]);
         }
         return answer;
     }
@@ -48,7 +47,7 @@ public class HitAndBlow {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         //ターン数を表示
-        System.out.println("\n" + turn + "ターン目");
+        System.out.println("\n" + "***" + turn + "ターン目***");
         for(int j = 0; j < input.length; j++){
             int a = 0;
             System.out.print((j + 1) + "つ目の数字:");
@@ -97,6 +96,8 @@ public class HitAndBlow {
             }
         }
         //eat,biteのカウンター表示
-        System.out.println(eat + "eat" + bite + "bite");
+        System.out.println("\n"
+        + "===result===\n" 
+        + eat + "eat" + bite + "bite");
     }
 }

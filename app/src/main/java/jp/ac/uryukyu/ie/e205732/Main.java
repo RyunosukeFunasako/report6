@@ -25,7 +25,9 @@ public class Main{
             }
             //ゲーム終了判定
             else if(HitAndBlow.eat == 4){
-                System.out.println("ゲーム終了です。");
+                System.out.println("\n"
+                + "~~~congratulations~~~\n"
+                + "4eat達成！ゲーム終了です。\n");
                 break;
             }
         }

@@ -20,13 +20,13 @@ public class Main{
             input = Hit.input();
             Hit.judge(answer, input);
             HitAndBlow.turn++;
-            if(HitAndBlow.eat < 4){
+            if(HitAndBlow.eat < HitAndBlow.answerSize){
                 HitAndBlow.eat = 0;
                 HitAndBlow.bite = 0;
-            }else if(HitAndBlow.eat == 4){
+            }else if(HitAndBlow.eat == HitAndBlow.answerSize){
                 System.out.println("\n"
                 + "~~~congratulations~~~\n"
-                + "4eat達成！ゲーム終了です。\n");
+                + HitAndBlow.answerSize + "eat達成！ゲーム終了です。\n");
                 break;
             }
         }
